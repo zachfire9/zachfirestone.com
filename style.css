@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    background-color: #dfdfdf;
+    font-family: 'Lato', sans-serif;
+}
+
+.float_clear {
+    clear: both;
+}
+
+#container {
+    padding: 20px 0;
+    width: 917px;
+    margin: 0px auto;
+    background-color: #FFFFFF;
+    max-width: 917px;
+}
+
+#header {
+    width: 877px;
+    height: 252px;
+    margin: 0px auto;
+    background-image: url('./images/city-bg.jpg');
+}
+
+#header #main_image {
+    width: 208px;
+    height: 208px;
+    margin: 0;
+    padding: 20px 0 0 20px;
+    float: left;
+}
+
+#header h1 {
+    color: #FFFFFF;
+    font-size: 30px;
+    margin: 0;
+    padding: 15px 0 0 0;
+    width: 275px;
+    float: right;
+}
+
+h1 #title {
+    font-size: 24px;
+}
+
+#info {
+    width: 877px;
+    margin: 0px auto;
+}
+
+#info img {
+    float: right;
+    padding-left: 10px;
+}
+
+#skills {
+    color: #FFFFFF;
+    width: 877px;
+    margin: 0px auto;
+}
+
+#skills h2 {
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    background-color: #000b61;
+    padding: 15px 0 0 15px;
+    font-style: italic;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    height: 38px;
+    list-style: none;
+    margin: 0;
+    padding: 20px 0 0 0;
+}
+
+.skill_bar {
+    font-style: italic;
+    width: 200px;
+    height: 30px;
+    padding: 8px 0 0 20px;
+    display: block;
+    float: left;
+    background-image: url('./images/skill-bar-name-bg.png');
+}
+
+.skill_bar_edge {
+    width: 16px;
+    height: 38px;
+    display: block;
+    float: left;
+    background-image: url('./images/skill-bar-name-edge.png');
+}
+
+.skill_bar_inc {
+    width: 21px;
+    height: 38px;
+    display: block;
+    float: left;
+    background-image: url('./images/skill-bar.png');
+}
+
+.skill_name {
+    width: 300px;
+    float: left;
+    color: #000000;
+    font-weight: bold;
+    font-style: italic;
+    padding: 4px 0 0 10px;
+}
+
+.skill_number {
+    font-size: 24px;
+}
