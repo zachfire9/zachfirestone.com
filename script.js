@@ -1,9 +1,8 @@
-// Scroll-triggered fade-in for sections
+// Scroll-triggered section reveal
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
@@ -13,34 +12,30 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.section').forEach((section) => {
-    section.style.animationPlayState = 'paused';
     observer.observe(section);
 });
 
-// Navbar shadow on scroll
+// Nav shadow + shrink on scroll
 const nav = document.querySelector('.nav');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-
-    if (currentScroll > 50) {
-        nav.style.boxShadow = '0 10px 30px -10px rgba(2, 12, 27, 0.7)';
+    if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5)';
+        nav.style.borderBottomColor = 'rgba(0, 240, 255, 0.15)';
     } else {
         nav.style.boxShadow = 'none';
+        nav.style.borderBottomColor = 'rgba(0, 240, 255, 0.08)';
     }
-
-    lastScroll = currentScroll;
 });
 
-// Active nav link highlighting
+// Active nav link tracking
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 120;
         if (window.scrollY >= sectionTop) {
             current = section.getAttribute('id');
         }
@@ -49,7 +44,28 @@ window.addEventListener('scroll', () => {
     navLinks.forEach((link) => {
         link.style.color = '';
         if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--accent)';
+            link.style.color = 'var(--neon-cyan)';
         }
     });
 });
+
+// Parallax city skyline
+const skyline = document.querySelector('.city-skyline');
+if (skyline) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+        if (scrolled < heroHeight) {
+            skyline.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+    });
+}
+
+// Random subtle glitch burst on name (every 8-15 seconds)
+const glitchEl = document.querySelector('.glitch');
+if (glitchEl) {
+    setInterval(() => {
+        glitchEl.classList.add('glitch-active');
+        setTimeout(() => glitchEl.classList.remove('glitch-active'), 200);
+    }, 8000 + Math.random() * 7000);
+}
