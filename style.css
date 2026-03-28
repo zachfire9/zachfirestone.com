@@ -342,6 +342,7 @@ main {
 /* ---- Hero Image ---- */
 .hero-image-wrapper {
     position: relative;
+    padding: 20px;
 }
 
 .hero-image-ring {
