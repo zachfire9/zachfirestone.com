@@ -634,6 +634,31 @@ main {
 }
 
 /* ---- Current Role ---- */
+.role-header-card {
+    margin-bottom: 28px;
+}
+
+.role-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.role-company {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--neon-cyan);
+    letter-spacing: 1px;
+}
+
+.role-separator {
+    color: var(--text-secondary);
+    margin: 0 4px;
+}
+
 .role-content p {
     font-size: 18px;
     line-height: 1.8;
