@@ -170,7 +170,7 @@ main {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .hero-content {
@@ -796,7 +796,7 @@ main {
         align-items: center;
         order: -1;
         margin-bottom: 0;
-        padding-top: 90px;
+        padding-top: 110px;
     }
 
     .hero-image-ring {
