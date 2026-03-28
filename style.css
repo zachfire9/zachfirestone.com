@@ -342,6 +342,7 @@ main {
 /* ---- Hero Image ---- */
 .hero-image-wrapper {
     position: relative;
+    padding: 20px;
 }
 
 .hero-image-ring {
@@ -793,11 +794,12 @@ main {
         align-items: center;
         order: -1;
         margin-bottom: 20px;
+        padding-top: 80px;
     }
 
     .hero-image-ring {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
     }
 }
 
