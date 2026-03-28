@@ -49,18 +49,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Parallax city skyline
-const skyline = document.querySelector('.city-skyline');
-if (skyline) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const heroHeight = document.querySelector('.hero').offsetHeight;
-        if (scrolled < heroHeight) {
-            skyline.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-    });
-}
-
 // Random subtle glitch burst on name (every 8-15 seconds)
 const glitchEl = document.querySelector('.glitch');
 if (glitchEl) {

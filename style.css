@@ -442,17 +442,7 @@ main {
     50% { opacity: 0.4; }
 }
 
-/* City Skyline */
-.city-skyline {
-    position: absolute;
-    bottom: 0;
-    left: -10%;
-    right: -10%;
-    height: 200px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath fill='%230d1320' d='M0 200V120h30v-20h15v-30h20v30h15v-40h10v-15h15v15h10v40h25v-50h10v-10h20v10h10v50h30v-35h10v-20h15v20h10v35h40v-60h10v-15h20v15h10v60h25v-25h15v-45h10v-10h20v10h10v45h15v25h30v-80h15v-10h10v10h15v80h20v-30h15v-55h10v-20h20v20h10v55h15v30h35v-45h10v-15h20v15h10v45h40v-70h15v-25h10v25h15v70h25v-20h20v-40h10v-10h15v10h10v40h20v20h35v-55h10v-10h20v10h10v55h40v-35h15v-50h10v-10h15v10h10v50h15v35h20v-15h30v15z'/%3E%3C/svg%3E") center bottom / 100% auto no-repeat;
-    opacity: 0.6;
-    pointer-events: none;
-}
+
 
 /* ---- Sections ---- */
 .section {
@@ -810,9 +800,6 @@ main {
         padding: 16px 20px;
     }
 
-    .city-skyline {
-        height: 120px;
-    }
 }
 
 @media (max-width: 480px) {
