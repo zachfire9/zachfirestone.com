@@ -633,6 +633,48 @@ main {
     border-bottom-color: var(--neon-cyan);
 }
 
+/* ---- Current Role ---- */
+.role-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.role-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.role-highlight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 240, 255, 0.08);
+    border-radius: 8px;
+    border-left: 2px solid var(--neon-cyan);
+    transition: var(--transition);
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.role-highlight:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(0, 240, 255, 0.2);
+    border-left-color: var(--neon-cyan);
+    transform: translateX(6px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
 /* ---- Footer ---- */
 .footer {
     text-align: center;
