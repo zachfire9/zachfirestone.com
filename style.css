@@ -795,7 +795,7 @@ main {
         flex-direction: column;
         align-items: center;
         order: -1;
-        margin-bottom: 0;
+        margin-bottom: -20px;
         padding-top: 110px;
     }
 
