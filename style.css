@@ -667,38 +667,69 @@ main {
     color: var(--text-secondary);
 }
 
-.role-highlights {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 28px;
+.role-projects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 32px;
 }
 
-.role-highlight {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 20px;
+.role-project {
+    padding: 22px;
     background: var(--bg-card);
     border: 1px solid rgba(0, 240, 255, 0.08);
-    border-radius: 8px;
-    border-left: 2px solid var(--neon-cyan);
+    border-radius: 12px;
+    border-top: 2px solid var(--neon-cyan);
     transition: var(--transition);
-    font-size: 16px;
-    color: var(--text-primary);
 }
 
-.role-highlight:hover {
+.role-project:hover {
     background: var(--bg-card-hover);
     border-color: rgba(0, 240, 255, 0.2);
-    border-left-color: var(--neon-cyan);
-    transform: translateX(6px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.3);
 }
 
-.highlight-icon {
-    font-size: 20px;
-    flex-shrink: 0;
+.role-project-kicker {
+    font-family: var(--font-mono);
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+    color: var(--neon-cyan) !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.role-project h4 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.role-project p:not(.role-project-kicker) {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.role-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.role-tech-stack span {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 8px 12px;
+    background: rgba(0, 240, 255, 0.06);
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    border-radius: 999px;
 }
 
 /* ---- Footer ---- */
@@ -822,8 +853,13 @@ main {
         padding: 60px 0;
     }
 
-    .skills-grid {
+    .skills-grid,
+    .role-projects {
         grid-template-columns: 1fr;
+    }
+
+    .role-project {
+        padding: 18px;
     }
 
     .hero-profiles {
