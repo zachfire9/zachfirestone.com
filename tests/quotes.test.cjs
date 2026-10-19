@@ -9,10 +9,12 @@ class Element {
     constructor(tagName = 'div') {
         this.tagName = tagName;
         this.children = [];
-        this.textContent = '';
+        this._textContent = '';
         this.hidden = false;
     }
     set innerHTML(_) { throw new Error('Unsafe HTML rendering'); }
+    get textContent() { return this._textContent + this.children.map((child) => child.textContent).join(''); }
+    set textContent(text) { this._textContent = text; this.children = []; }
     appendChild(child) { this.children.push(child); }
     replaceChildren(...children) { this.children = children; }
 }
@@ -44,15 +46,21 @@ test('page wires the final numbered quotes section and deferred renderer', () =>
 
 test('quote styling preserves whitespace and wraps long content; mobile nav has a second row', () => {
     const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
-    assert.match(css, /\.quote-card\s*\{[^}]*white-space:\s*pre-wrap;/);
+    assert.match(css, /\.quote-text\s*\{[^}]*white-space:\s*pre-wrap;/);
     assert.match(css, /\.quote-card\s*\{[^}]*overflow-wrap:\s*anywhere;/);
+    assert.match(css, /\.quote-attribution\s*\{[^}]*margin-top:\s*[^;]+;[^}]*color:\s*var\(--text-secondary\);/);
     assert.match(css, /@media \(max-width: 480px\)[\s\S]*\.nav\s*\{[^}]*flex-direction:\s*column;/);
 });
 
-test('initial source contains only the requested quote', () => {
+const gratefulDeadQuote = "Sometimes the light's all shinin' on me\nOther times I can barely see\nLately it occurs to me\nWhat a long, strange trip it's been";
+
+test('source keeps the original quote and adds the attributed Grateful Dead quote', () => {
     const file = path.join(root, 'quotes.json');
     assert.ok(fs.existsSync(file), 'quotes.json source must exist');
-    assert.deepEqual(JSON.parse(fs.readFileSync(file, 'utf8')), [{ text: 'Today is the tomorrow I was so worried about yesterday.' }]);
+    assert.deepEqual(JSON.parse(fs.readFileSync(file, 'utf8')), [
+        { text: 'Today is the tomorrow I was so worried about yesterday.' },
+        { text: gratefulDeadQuote, attribution: 'Grateful Dead' },
+    ]);
 });
 
 test('loads and renders a quote from the JSON source', async () => {
@@ -79,8 +87,41 @@ test('renders multiple quotes in order, preserving newlines and hostile text lit
     const view = load(() => response(texts.map((text) => ({ text }))));
     await view.result;
     assert.deepEqual(view.list.children.map((card) => card.textContent), texts);
-    assert.ok(view.list.children.every((card) => card.children.length === 0));
+    assert.ok(view.list.children.every((card) => card.children.length === 1 && card.children[0].className === 'quote-text' && card.children[0].children.length === 0));
 });
+
+test('renders multiline quote and literal attribution in separate styled elements', async () => {
+    const attribution = '<img src=x onerror=alert(1)> & Grateful Dead';
+    const view = load(() => response([{ text: gratefulDeadQuote, attribution }]));
+    await view.result;
+    const card = view.list.children[0];
+    assert.equal(card.children.length, 2);
+    assert.equal(card.children[0].className, 'quote-text');
+    assert.equal(card.children[0].textContent, gratefulDeadQuote);
+    assert.equal(card.children[1].className, 'quote-attribution');
+    assert.equal(card.children[1].textContent, attribution);
+    assert.equal(card.children[1].children.length, 0);
+    assert.equal(view.status.hidden, true);
+});
+
+test('omits the attribution element when missing, empty, or whitespace-only', async () => {
+    const quotes = [{ text: 'Missing' }, { text: 'Empty', attribution: '' }, { text: 'Blank', attribution: ' \n\t ' }];
+    const view = load(() => response(quotes));
+    await view.result;
+    assert.equal(view.list.children.length, 3);
+    assert.ok(view.list.children.every((card) => card.children.length === 1 && card.children[0].className === 'quote-text'));
+    assert.equal(view.status.hidden, true);
+});
+
+for (const attribution of [null, 42, false, {}, []]) {
+    test(`rejects non-string attribution without a partial list: ${JSON.stringify(attribution)}`, async () => {
+        const view = load(() => response([{ text: 'Valid' }, { text: 'Invalid', attribution }]));
+        await view.result;
+        assert.equal(view.status.textContent, 'Quotes are unavailable right now. Please try again later.');
+        assert.equal(view.status.hidden, false);
+        assert.equal(view.list.children.length, 0);
+    });
+}
 
 test('shows an empty state for an empty array', async () => {
     const view = load(() => response([]));

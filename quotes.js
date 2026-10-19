@@ -12,7 +12,8 @@
         // Validate everything before rendering so malformed data never leaves a partial list.
         if (!Array.isArray(quotes) || !quotes.every((quote) =>
             quote !== null && typeof quote === 'object' &&
-            typeof quote.text === 'string' && quote.text.trim().length > 0
+            typeof quote.text === 'string' && quote.text.trim().length > 0 &&
+            (!('attribution' in quote) || typeof quote.attribution === 'string')
         )) {
             throw new Error('Invalid quotes data');
         }
@@ -20,7 +21,16 @@
         for (const quote of quotes) {
             const card = document.createElement('blockquote');
             card.className = 'quote-card';
-            card.textContent = quote.text;
+            const text = document.createElement('p');
+            text.className = 'quote-text';
+            text.textContent = quote.text;
+            card.appendChild(text);
+            if (quote.attribution && quote.attribution.trim()) {
+                const attribution = document.createElement('p');
+                attribution.className = 'quote-attribution';
+                attribution.textContent = quote.attribution;
+                card.appendChild(attribution);
+            }
             list.appendChild(card);
         }
         status.textContent = quotes.length ? '' : 'No quotes yet.';
