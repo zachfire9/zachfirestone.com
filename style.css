@@ -733,6 +733,10 @@ main {
 }
 
 /* ---- Quotes ---- */
+.quotes-intro {
+    margin-bottom: 24px;
+}
+
 .quotes-list {
     display: grid;
     gap: 24px;
