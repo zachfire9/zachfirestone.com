@@ -732,6 +732,39 @@ main {
     border-radius: 999px;
 }
 
+/* ---- Quotes ---- */
+.quotes-intro {
+    margin-bottom: 24px;
+}
+
+.quotes-list {
+    display: grid;
+    gap: 24px;
+}
+
+.quote-card {
+    min-width: 0;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    border-left: 3px solid var(--neon-cyan);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 22px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.quote-text {
+    white-space: pre-wrap;
+}
+
+.quote-attribution {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
 /* ---- Footer ---- */
 .footer {
     text-align: center;
@@ -878,12 +911,31 @@ main {
 }
 
 @media (max-width: 480px) {
+    :root {
+        --nav-height: 96px;
+    }
+
+    .nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 12px;
+    }
+
     .nav-links {
-        gap: 12px;
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .nav-number {
+        display: none;
     }
 
     .nav-links a {
         font-size: 11px;
+        letter-spacing: 0;
+        white-space: nowrap;
     }
 
     .experience-timeline {
