@@ -9,7 +9,7 @@
     --bg-card: rgba(13, 19, 32, 0.8);
     --bg-card-hover: rgba(20, 30, 50, 0.9);
     --text-primary: #e0e6f0;
-    --text-secondary: #6b7a99;
+    --text-secondary: #a3b1cc; /* 8.9:1 on --bg-primary; was #6b7a99 (4.5:1) */
     --neon-cyan: #00f0ff;
     --neon-magenta: #ff006a;
     --neon-purple: #b44aff;
@@ -40,6 +40,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-secondary);
     font-size: 17px;
+    font-weight: 500;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
