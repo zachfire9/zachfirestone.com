@@ -739,7 +739,6 @@ main {
     line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: 28px;
-    max-width: 760px;
 }
 
 /* One project fills the row; a second one sits beside it on wide screens. */
