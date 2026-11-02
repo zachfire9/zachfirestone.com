@@ -732,6 +732,120 @@ main {
     border-radius: 999px;
 }
 
+/* ---- Side Projects ---- */
+.projects-intro {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    max-width: 760px;
+}
+
+/* One project fills the row; a second one sits beside it on wide screens. */
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    min-width: 0;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 240, 255, 0.08);
+    border-top: 2px solid var(--neon-cyan);
+    border-radius: 12px;
+}
+
+.project-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px 24px;
+    margin-bottom: 20px;
+}
+
+.project-kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--neon-cyan);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+}
+
+.project-link-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    background: rgba(0, 240, 255, 0.06);
+    border: 1px solid rgba(0, 240, 255, 0.35);
+    border-radius: 8px;
+    transition: var(--transition);
+    overflow-wrap: anywhere;
+}
+
+.project-link-primary:hover,
+.project-link-primary:focus-visible {
+    background: rgba(0, 240, 255, 0.12);
+    box-shadow: 0 0 18px var(--neon-cyan-glow);
+}
+
+.project-card > p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    max-width: 78ch;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 22px;
+}
+
+.project-links a {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.35);
+    padding-bottom: 2px;
+    transition: var(--transition);
+}
+
+.project-links a:hover,
+.project-links a:focus-visible {
+    color: var(--neon-cyan);
+    border-bottom-color: var(--neon-cyan);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
 /* ---- Quotes ---- */
 .quotes-intro {
     margin-bottom: 24px;
@@ -893,6 +1007,10 @@ main {
 
     .role-project {
         padding: 18px;
+    }
+
+    .project-card {
+        padding: 20px;
     }
 
     .hero-profiles {
