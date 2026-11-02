@@ -38,10 +38,22 @@ const response = (data) => Promise.resolve({ ok: true, json: async () => data })
 
 test('page wires the final numbered quotes section and deferred renderer', () => {
     const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-    assert.match(html, /href="#quotes"><span class="nav-number">04<\/span> Quotes<\/a>/);
+    assert.match(html, /href="#quotes"><span class="nav-number">05<\/span> Quotes<\/a>/);
     assert.match(html, /<section id="quotes" class="section"[\s\S]*id="quotes-list"[\s\S]*<\/section>\s*<\/main>\s*<footer/);
     assert.match(html, /id="quotes-status" role="status"/);
     assert.match(html, /<script src="quotes.js" defer><\/script>/);
+});
+
+test('side projects sits between current role and quotes, linking to the financials app', () => {
+    const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+    assert.match(html, /href="#projects"><span class="nav-number">04<\/span> Side Projects<\/a>/);
+    const current = html.indexOf('<section id="current"');
+    const projects = html.indexOf('<section id="projects"');
+    const quotes = html.indexOf('<section id="quotes"');
+    assert.ok(current < projects && projects < quotes, 'expected Current Role, then Side Projects, then Quotes');
+    assert.match(html, /<span class="section-number">04 \/\/<\/span> SIDE PROJECTS/);
+    assert.match(html, /<span class="section-number">05 \/\/<\/span> QUOTES/);
+    assert.match(html, /<article class="project-card">[\s\S]*href="https:\/\/financials\.zachfirestone\.com"/);
 });
 
 test('quote styling preserves whitespace and wraps long content; mobile nav has a second row', () => {

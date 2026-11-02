@@ -19,7 +19,8 @@
             <a href="#about"><span class="nav-number">01</span> About</a>
             <a href="#skills"><span class="nav-number">02</span> Tech Stack</a>
             <a href="#current"><span class="nav-number">03</span> Current Role</a>
-            <a href="#quotes"><span class="nav-number">04</span> Quotes</a>
+            <a href="#projects"><span class="nav-number">04</span> Side Projects</a>
+            <a href="#quotes"><span class="nav-number">05</span> Quotes</a>
         </div>
     </nav>
 
@@ -215,9 +216,60 @@
             </div>
         </section>
 
+        <!-- Side Projects: add another <article class="project-card"> to .projects-list for each project. -->
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="section-heading"><span class="section-number">04 //</span> SIDE PROJECTS</h2>
+            <p class="projects-intro">Things I build outside of work. They're tools I want to use myself as well as opportunities to learn new technologies.</p>
+            <div class="projects-list">
+                <article class="project-card">
+                    <p class="project-kicker">Personal finance <span class="role-separator">//</span> Live</p>
+                    <h3 class="project-title">Financials Planner</h3>
+                    <div class="project-links">
+                        <a class="project-link-primary" href="https://financials.zachfirestone.com" target="_blank" rel="noopener noreferrer">
+                            financials.zachfirestone.com
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <span class="visually-hidden">(opens in a new tab)</span>
+                        </a>
+                        <a class="project-link" href="https://github.com/zachfire9/financials-api" target="_blank" rel="noopener noreferrer">API code on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+                        <a class="project-link" href="https://github.com/zachfire9/financials-ui" target="_blank" rel="noopener noreferrer">UI code on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+                    </div>
+                    <p>
+                        This app answers the question I kept coming back to: how long will my money
+                        actually last in retirement? You add your accounts, like a 401(k), a Roth IRA or a brokerage account,
+                        with a balance, an expected return and what you put in each year. Then you set how many
+                        years you'll keep saving and how many you'll draw down, and it charts how each account
+                        grows, when the total peaks and whether the money runs out before the plan does.
+                    </p>
+                    <p>
+                        I wanted to see every account on its own, not just one big number, and I didn't want to
+                        hand my financial details to another site to get there. Your accounts stay in your
+                        browser and are never saved on a server, and you can export them as a JSON backup
+                        whenever you want.
+                    </p>
+                    <p>
+                        It's also a rewrite of an old Django prototype I had sitting on Heroku. I rebuilt it as a
+                        Go API with a React and TypeScript front end, and deployed it serverless on AWS: Lambda and
+                        API Gateway for the API, S3 and CloudFront for the site, managed with SAM and deployed from
+                        GitHub Actions. I built it in small, reviewable PRs and used AI-assisted development
+                        throughout, the same way I work day to day.
+                    </p>
+                    <div class="role-tech-stack" aria-label="Technologies used in Financials Planner">
+                        <span>Go</span>
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>AWS Lambda</span>
+                        <span>API Gateway</span>
+                        <span>S3 + CloudFront</span>
+                        <span>AWS SAM</span>
+                        <span>GitHub Actions</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- Quotes: edit quotes.json to add or change entries. -->
         <section id="quotes" class="section" aria-labelledby="quotes-heading">
-            <h2 id="quotes-heading" class="section-heading"><span class="section-number">04 //</span> QUOTES</h2>
+            <h2 id="quotes-heading" class="section-heading"><span class="section-number">05 //</span> QUOTES</h2>
             <p class="quotes-intro">I keep a record of quotes that are meaningful, insightful, or inspiring to me. Here are a few that I wanted to share.</p>
             <p id="quotes-status" role="status">Loading quotes…</p>
             <div id="quotes-list" class="quotes-list"></div>

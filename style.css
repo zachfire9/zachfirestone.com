@@ -9,7 +9,7 @@
     --bg-card: rgba(13, 19, 32, 0.8);
     --bg-card-hover: rgba(20, 30, 50, 0.9);
     --text-primary: #e0e6f0;
-    --text-secondary: #6b7a99;
+    --text-secondary: #a3b1cc; /* 8.9:1 on --bg-primary; was #6b7a99 (4.5:1) */
     --neon-cyan: #00f0ff;
     --neon-magenta: #ff006a;
     --neon-purple: #b44aff;
@@ -40,6 +40,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-secondary);
     font-size: 17px;
+    font-weight: 500;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -732,6 +733,111 @@ main {
     border-radius: 999px;
 }
 
+/* ---- Side Projects ---- */
+.projects-intro {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+}
+
+/* One project fills the row; a second one sits beside it on wide screens. */
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    min-width: 0;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 240, 255, 0.08);
+    border-top: 2px solid var(--neon-cyan);
+    border-radius: 12px;
+}
+
+.project-kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--neon-cyan);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+}
+
+/* The app and its code, on one row under the title. */
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    margin: 18px 0 22px;
+}
+
+.project-link-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    background: rgba(0, 240, 255, 0.06);
+    border: 1px solid rgba(0, 240, 255, 0.35);
+    border-radius: 8px;
+    transition: var(--transition);
+    overflow-wrap: anywhere;
+}
+
+.project-link-primary:hover,
+.project-link-primary:focus-visible {
+    background: rgba(0, 240, 255, 0.12);
+    box-shadow: 0 0 18px var(--neon-cyan-glow);
+}
+
+.project-card > p:not(.project-kicker) {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+}
+
+.project-link {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.35);
+    padding-bottom: 2px;
+    transition: var(--transition);
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+    color: var(--neon-cyan);
+    border-bottom-color: var(--neon-cyan);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
 /* ---- Quotes ---- */
 .quotes-intro {
     margin-bottom: 24px;
@@ -893,6 +999,10 @@ main {
 
     .role-project {
         padding: 18px;
+    }
+
+    .project-card {
+        padding: 20px;
     }
 
     .hero-profiles {
