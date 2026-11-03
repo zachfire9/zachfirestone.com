@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="1" y="1" width="62" height="62" rx="12" fill="#0a0e17" stroke="#00f0ff" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- Squared, Orbitron-style Z with a magenta offset echoing the site's neon palette -->
+  <path d="M15 15H49V23L27 41H49V49H15V41L37 23H15Z" fill="#ff006a" opacity="0.75" transform="translate(-1.5 1.5)"/>
+  <path d="M15 15H49V23L27 41H49V49H15V41L37 23H15Z" fill="#00f0ff" filter="url(#glow)"/>
+</svg>
