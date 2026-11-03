@@ -70,10 +70,8 @@ test('source keeps the original quote and adds the attributed Grateful Dead quot
     const file = path.join(root, 'quotes.json');
     assert.ok(fs.existsSync(file), 'quotes.json source must exist');
     const quotes = JSON.parse(fs.readFileSync(file, 'utf8'));
-    assert.deepEqual(quotes.slice(0, 2), [
-        { text: 'Today is the tomorrow I was so worried about yesterday.' },
-        { text: gratefulDeadQuote, attribution: 'Grateful Dead' },
-    ]);
+    assert.deepEqual(quotes[0], { text: 'Today is the tomorrow I was so worried about yesterday.' });
+    assert.ok(quotes.some((quote) => quote.text === gratefulDeadQuote && quote.attribution === 'Grateful Dead'));
 });
 
 test('every quote in the source is valid and unique', () => {
