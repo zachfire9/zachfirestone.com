@@ -8,7 +8,10 @@ const observer = new IntersectionObserver(
             }
         });
     },
-    { threshold: 0.1 }
+    // Trigger on any overlap (not a percentage of the section) so very tall
+    // sections like Quotes still reveal; the margin keeps the fade-in from
+    // firing until the section is slightly inside the viewport.
+    { threshold: 0, rootMargin: '0px 0px -10% 0px' }
 );
 
 document.querySelectorAll('.section').forEach((section) => {
