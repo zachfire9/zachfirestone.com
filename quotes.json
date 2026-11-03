@@ -6,8 +6,8 @@
     "text": "If you want something you've never had before, you need to do something you've never done before."
   },
   {
-    "text": "Sometimes the light's all shinin' on me\nOther times I can barely see\nLately it occurs to me\nWhat a long, strange trip it's been",
-    "attribution": "Grateful Dead"
+    "text": "When nothing seems to help, I go and look at a stonecutter hammering away at his rock, perhaps a hundred times without as much as a crack showing in it. Yet at the hundred and first blow it will split in two, and I know it was not that blow that did it, but all that had gone before.",
+    "attribution": "Jacob Riis"
   },
   {
     "text": "Give me six hours to chop down a tree, and I will spend the first four sharpening the axe."
@@ -16,7 +16,7 @@
     "text": "Nothing grows in the comfort zone."
   },
   {
-    "text": "It's the job that's never started as takes longest to finish.",
+    "text": "It's the job that's never started that takes longest to finish.",
     "attribution": "J.R.R. Tolkien, The Lord of the Rings"
   },
   {
@@ -26,7 +26,7 @@
     "text": "Be tolerant with others and strict with yourself."
   },
   {
-    "text": "Ability is what you're capable of doing. Motivation determines what you do. Attitude determines how well you do it.",
+    "text": "Ability is what you're capable of doing.\nMotivation determines what you do.\nAttitude determines how well you do it.",
     "attribution": "Lou Holtz"
   },
   {
@@ -60,10 +60,6 @@
   {
     "text": "From a hundred rabbits you can't make a horse.",
     "attribution": "Fyodor Dostoevsky, Crime and Punishment"
-  },
-  {
-    "text": "When nothing seems to help, I go and look at a stonecutter hammering away at his rock, perhaps a hundred times without as much as a crack showing in it. Yet at the hundred and first blow it will split in two, and I know it was not that blow that did it, but all that had gone before.",
-    "attribution": "Jacob Riis"
   },
   {
     "text": "You can't be great without the greatness of others."
@@ -130,7 +126,7 @@
     "attribution": "Thomas à Kempis"
   },
   {
-    "text": "Watch your thoughts, for they will become actions. Watch your actions, for they will become habits. Watch your habits, for they will forge your character. Watch your character, for it will make your destiny."
+    "text": "Watch your thoughts, for they will become actions.\nWatch your actions, for they will become habits.\nWatch your habits, for they will forge your character.\nWatch your character, for it will make your destiny."
   },
   {
     "text": "People are strange: they are constantly angered by trivial things, but on a major matter like wasting their lives, they hardly seem to notice.",
@@ -272,6 +268,10 @@
   },
   {
     "text": "Be unapologetically you when you talk to someone, because that lets them be unapologetically them."
+  },
+  {
+    "text": "Sometimes the light's all shinin' on me\nOther times I can barely see\nLately it occurs to me\nWhat a long, strange trip it's been",
+    "attribution": "Grateful Dead"
   },
   {
     "text": "Your time is limited, so don't waste it living someone else's life.",
