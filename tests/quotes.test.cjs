@@ -69,10 +69,22 @@ const gratefulDeadQuote = "Sometimes the light's all shinin' on me\nOther times 
 test('source keeps the original quote and adds the attributed Grateful Dead quote', () => {
     const file = path.join(root, 'quotes.json');
     assert.ok(fs.existsSync(file), 'quotes.json source must exist');
-    assert.deepEqual(JSON.parse(fs.readFileSync(file, 'utf8')), [
+    const quotes = JSON.parse(fs.readFileSync(file, 'utf8'));
+    assert.deepEqual(quotes.slice(0, 2), [
         { text: 'Today is the tomorrow I was so worried about yesterday.' },
         { text: gratefulDeadQuote, attribution: 'Grateful Dead' },
     ]);
+});
+
+test('every quote in the source is valid and unique', () => {
+    const quotes = JSON.parse(fs.readFileSync(path.join(root, 'quotes.json'), 'utf8'));
+    for (const quote of quotes) {
+        assert.equal(typeof quote.text, 'string');
+        assert.ok(quote.text.trim().length > 0);
+        assert.deepEqual(Object.keys(quote).filter((key) => key !== 'text' && key !== 'attribution'), []);
+        if ('attribution' in quote) assert.ok(typeof quote.attribution === 'string' && quote.attribution.trim());
+    }
+    assert.equal(new Set(quotes.map((quote) => quote.text)).size, quotes.length, 'no duplicate quotes');
 });
 
 test('loads and renders a quote from the JSON source', async () => {
